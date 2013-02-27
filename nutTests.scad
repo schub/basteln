@@ -1,14 +1,22 @@
 //$fn = 100;
 
-// use front(); to render the front side
-// use back(); to render the back side
 
-// front();
-// translate([0, 15, 0]) back();
+//screwWithNut(nr=4, nd=2, s=11, sd=3, sr=2.6, wp=20);
 
-//bothParts();
+difference() {
+	cube([44, 10, 13]);
+	rotate(a=[90, 0, 0]) translate([8, 8, -10]) screwWithNut(nr=4.9, nd=7.5, s=3.5, sd=0, wp=10);
+	rotate(a=[90, 0, 0]) translate([22, 8, -10]) screwWithNut(nr=5, nd=7.5, s=3.5, sd=0, wp=10);
+	rotate(a=[90, 0, 0]) translate([36, 8, -10]) screwWithNut(nr=5.1, nd=7.5, s=3.5, sd=0, wp=10);
+}
 
-screwWithNut(nr=4, nd=2, s=10, sd=3, sr=2.6, wp=20);
+
+// -------------------------------
+// own modules
+// -------------------------------
+
+
+
 
 // screwWithNut - draws a screw with nut. the object is placed
 //                in z-direction centered at the origin
@@ -31,92 +39,6 @@ module screwWithNut(nr=5, nd=6.5, s=4, sd=6.5, sr=2.6, wp=0) {
 		}
 	}
 }
-
-
-
-
-module front() {
-	difference() {
-		bothParts();
-		translate([-50, 2.5, 0]) cube([100, 40, 100]);
-	}
-}
-
-module back() {
-	difference() {
-		difference() {
-			bothParts();
-			translate([-50, -37.5, 0]) cube([100, 40, 100]);
-		}
-		translate([0, 27, -5]) cylinder(h=50, r=4.5);
-	}
-}
-
-module bothParts() {
-	difference() {
-		difference() {
-			bottlefixer();
-			nut(32, 20);
-		}
-		nut(-32, 20);
-	}
-}
-
-// one of the two side nuts
-module nut(dx = 0, dy = 0, dz = 0, h = 4.5) {
-	union() {
-		rotate(a=[90, 0, 0]) union() {
-			translate([dx, dy, 7.5]) hexagon(length = 5, 10);
-			translate([dx, dy, -10]) cylinder(h=15, r=2.6);
-		}
-		translate([dx-h	, -12.5 , 22]) cube([9, 10, 20]);
-	}
-}
-
-// the whole thing without nuts
-module bottlefixer() {
-	difference() {
-		difference() {
-			difference() {
-				difference() {
-					difference() {
-						difference() {
-							difference() {
-								union() {
-									cylinder(h=40, r=30);
-									translate([-40, -7.5, 0]) cube([80, 15, 40]);
-								}
-								// inner cylinder	
-								cylinder(h=40, r=12.5);
-							}
-							union() {
-								translate([32, 17.5, 20]) rotate(a=[90, 0, 0]) cylinder(h=10, r=6);
-								translate([26, 7.5, 20]) cube([12, 12, 25]);
-							}
-						}
-						union() {
-							translate([-32, 17.5, 20]) rotate(a=[90, 0, 0]) cylinder(h=10, r=6);
-							translate([-38, 7.5, 20]) cube([12, 12, 25]);
-						}
-					}
-					// the big coke bottle
-					rotate(a=[5, 0, 0]) translate([0, -68, -5]) cylinder(h=50, r=47);
-				}
-				translate([0, -13, 0]) {
-					union() {
-						rotate(a=[90, 0, 0]) translate([0, 10, 0]) hexagon(4.5, 6);
-						translate([-4.5, -3, 10]) cube([9,6,40]);
-					}
-				}
-			}
-			rotate(a=[90, 0, 0]) translate([0, 10, 10]) cylinder(h=15, r=2.6);
-		}
-		rotate(a=[90, 0, 0]) translate([0, 30, 10]) cylinder(h=15, r=2.6);
-	}
-}
-
-
-
 
 
 
