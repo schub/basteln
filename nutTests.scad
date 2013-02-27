@@ -1,13 +1,15 @@
 $fn = 100;
 
-
 //screwWithNut(nr=4, nd=2, s=11, sd=3, sr=2.6, wp=20);
 
 difference() {
-	cube([44, 10, 13]);
-	rotate(a=[90, 0, 0]) translate([8, 8, -10]) screwWithNut(nr=4.9, nd=7.5, s=3.5, sd=0, wp=10);
-	rotate(a=[90, 0, 0]) translate([22, 8, -10]) screwWithNut(nr=5, nd=7.5, s=3.5, sd=0, wp=10);
+	cube([80, 10, 13]);
+	rotate(a=[90, 0, 0]) translate([8, 8, -10]) screwWithNut(nr=5, nd=7.5, s=3.5, sd=0, wp=10);
+	rotate(a=[90, 0, 0]) translate([22, 8, -10]) screwWithNut(nr=5.05, nd=7.5, s=3.5, sd=0, wp=10);
 	rotate(a=[90, 0, 0]) translate([36, 8, -10]) screwWithNut(nr=5.1, nd=7.5, s=3.5, sd=0, wp=10);
+	rotate(a=[90, 0, 0]) translate([49, 8, -10]) screwWithNut(nr=4, nd=7.5, s=3.5, sd=0, wp=10);
+	rotate(a=[90, 0, 0]) translate([61, 8, -10]) screwWithNut(nr=4.05, nd=7.5, s=3.5, sd=0, wp=10);
+	rotate(a=[90, 0, 0]) translate([73, 8, -10]) screwWithNut(nr=4.1, nd=7.5, s=3.5, sd=0, wp=10);
 }
 
 
