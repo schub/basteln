@@ -1,4 +1,4 @@
-//$fn = 100;
+$fn = 100;
 
 
 //screwWithNut(nr=4, nd=2, s=11, sd=3, sr=2.6, wp=20);
