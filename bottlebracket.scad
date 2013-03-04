@@ -79,8 +79,8 @@ module _base(ro, ri, height) {
 		union() {
 			difference() {
 				union() {
-					scale([1.1, 0.7, 1]) cylinder(h=30, r=25);
-					scale([0.7, 1, 1]) cylinder(h=30, r=25);
+					scale([1.1, 0.6, 1]) cylinder(h=30, r=25);
+					scale([0.6, 1, 1]) cylinder(h=30, r=25);
 				}
 				translate([0, base_tube_offset, 0]) cylinder(h=30, r=base_tube_radius);
 			}
