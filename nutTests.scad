@@ -23,6 +23,6 @@ module _nutHole(dx=0, r=5) {
 	}
 }
 
-// this thing was printed and best Result:
+// this thing was printed and best results are:
 // M5 => r=4.1
 // M6 => r=5.05
