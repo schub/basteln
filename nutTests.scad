@@ -7,10 +7,22 @@ $fn = 100;
 
 difference() {
 	cube([80, 10, 13]);
-	rotate(a=[90, 0, 0]) translate([8, 8, -10]) screwWithNut(nr=5, nd=7.5, s=3.5, sd=0, wp=10);
-	rotate(a=[90, 0, 0]) translate([22, 8, -10]) screwWithNut(nr=5.05, nd=7.5, s=3.5, sd=0, wp=10);
-	rotate(a=[90, 0, 0]) translate([36, 8, -10]) screwWithNut(nr=5.1, nd=7.5, s=3.5, sd=0, wp=10);
-	rotate(a=[90, 0, 0]) translate([49, 8, -10]) screwWithNut(nr=4, nd=7.5, s=3.5, sd=0, wp=10);
-	rotate(a=[90, 0, 0]) translate([61, 8, -10]) screwWithNut(nr=4.05, nd=7.5, s=3.5, sd=0, wp=10);
-	rotate(a=[90, 0, 0]) translate([73, 8, -10]) screwWithNut(nr=4.1, nd=7.5, s=3.5, sd=0, wp=10);
+	_nutHole(8, 5);
+	_nutHole(22, 5.05);
+	_nutHole(36, 5.1);
+	_nutHole(49, 4);
+	_nutHole(61, 4.05);
+	_nutHole(73, 4.1);
 }
+
+module _nutHole(dx=0, r=5) {
+	rotate(a=[90, 0, 0]) {
+		translate([dx, 8, -10]) {
+			screwWithNut(nr=r, nd=7.5, s=3.5, sd=0, wp=10);
+		}
+	}
+}
+
+// this thing was printed and best Result:
+// M5 => r=4.1
+// M6 => r=5.05
