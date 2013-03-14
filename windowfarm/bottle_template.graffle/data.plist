@@ -669,14 +669,14 @@
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{-124, -16}, {808, 815}}</string>
+		<string>{{-529, -423}, {1616, 1630}}</string>
 		<key>Zoom</key>
-		<real>1</real>
+		<real>0.5</real>
 		<key>ZoomValues</key>
 		<array>
 			<array>
 				<string>Canvas 1</string>
-				<real>1</real>
+				<real>0.5</real>
 				<real>1</real>
 			</array>
 		</array>

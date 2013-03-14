@@ -24,11 +24,11 @@ base_tube_offset=4;
 // shapes
 // ---------------------------------------------------
 
-_all();
+//_all();
 
-//_front();
+_front();
 //_back();
-//translate([0, 10, 0]) _back();
+translate([0, 10, 0]) _back();
 
 
 // test 
