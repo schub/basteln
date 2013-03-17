@@ -48,7 +48,7 @@ module _head() {
 	difference() {
 		_headBase();
 		translate([0, 0, -30]) cylinder(h=30, r=_rRod);
-		translate([-50, -50, -100]) cube([100, 100, 100]);
+		//translate([-50, -50, -100]) cube([100, 100, 100]);
 	}
 
 	translate([0, 0, -20]) cylinder(h=20, r=15);
@@ -59,9 +59,13 @@ module _headBase() {
 	rotate(a=[90, 0, 0]) {
 		difference() {
 			union() {
-				rotate_extrude(file="circle_15_9.dxf");
+				difference() {
+					rotate_extrude(file="circle_15_9.dxf");
+					translate([-50, -100, -50]) cube(100);
+				}
 				sphere(_rRod+_rWt/2);
 				translate([-15, 2, 0]) sphere(r=12);
+				translate([15, 2, 0]) sphere(r=12);
 			}
 			rotate_extrude(file="circle_20_5.dxf");
 		}

@@ -1,7 +1,7 @@
 use <modules.scad>;
 
 // increase resolution
-//$fn = 100;
+$fn = 100;
 
 
 // ---------------------------------------------------
@@ -68,6 +68,7 @@ _m1=[186.5,93];	// guessing... => somehow I screwd up the calculation
 difference() {
 	_base();
 	translate([_m1[0], _m1[1], 0]) cylinder(r=radiusScrew2, h=hCon);
+	translate([_m1[0], _m1[1], 1]) cylinder(r1=0.2, r2=10, h=hCon);
 }
 
 module _base() {
