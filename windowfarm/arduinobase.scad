@@ -11,19 +11,31 @@ $fn = 100;
 hCon=3;	// height of the connectors
 hSockel=8;	// height of the sockel
 radius=3;
-strength=10;
-radiusScrew=1.5;
-radiusScrew2=2;
+strength=8;
+radiusScrew=0.8;
+radiusScrew2=1.2;
 
 // these values are based on arduino leonardo
-b1=[[60,200], [260,30]];
-b2=[[55,10],[260,140]];
+// 
+// values in mil:
+// 		p1=[600, 2000]		// top left
+// 		p2=[2600, 300];	// bottom right
+// 		p3=[550, 100];		// bottom left
+// 		p4=[2600, 1400];	// top right
+// values in mm:
+// 		p1=[15.24, 50.8]
+// 		p2=[66.04, 7.62];
+// 		p3=[13.97, 2.54];
+// 		p4=[66.04, 35.56];
+
+
+b1=[[15.24, 50.8], [66.04, 7.62]];
+b2=[[13.97, 2.54],[66.04, 35.56]];
+
 
 // ---------------------------------------------------
 // preprocessing
 // ---------------------------------------------------
-
-translate(-50, -50, 0) cube(100);
 
 _dx1=b1[1][0]-b1[0][0];
 _dy1=b1[1][1]-b1[0][1];
@@ -34,8 +46,7 @@ _dy2=b2[1][1]-b2[0][1];
 _l1=sqrt(pow(_dx1, 2) + pow(_dy1, 2));
 _l2=sqrt(pow(_dx2, 2) + pow(_dy2, 2));
 
-//_a1=360-asin(_dx1/_l1);
-_a1=319.61;	// guessing... => somehow I screwd up the calculation
+_a1=270+asin(_dx1/_l1);
 _a2=90-asin(_dx2/_l2);
 
 // compute straight function for first two points
@@ -49,36 +60,28 @@ _a2=90-asin(_dx2/_l2);
 _sa1=(b1[1][1]-b1[0][1])/(b1[1][0]-b1[0][0]);
 _sb1=b1[0][1]-b1[0][0]*_sa1;
 
-echo(_sa1, _sb1);
+_m1=[47.371,23.622];	// guessing... => somehow I screwd up the calculation
 
-/*
-for(i=[-5:20]) {
-	translate([i*5, i*_sa1+_sb1, 0]) cylinder(h=8, r=0.8);
-}
 
-for(i=[-5:20]) {
-	translate([i*5, i*5, 0]) cylinder(h=12, r=1.2);
-}
-*/
+// ---------------------------------------------------
+// model
+// ---------------------------------------------------
+
+
+_all();
 
 // ---------------------------------------------------
 // shapes
 // ---------------------------------------------------
 
-_m1=[186.5,93];	// guessing... => somehow I screwd up the calculation 
-
-difference() {
-	_base();
-	translate([_m1[0], _m1[1], 0]) cylinder(r=radiusScrew2, h=hCon);
-	translate([_m1[0], _m1[1], 1]) cylinder(r1=0.2, r2=10, h=hCon);
-}
-
-module _base() {
-	union() {
-		_cons();
-		translate([_m1[0], _m1[1], 0]) cylinder(r=12, h=hCon);
-		//translate([_m1[0]-5, _m1[1]+1, 0]) rotate(a=[0, 0, -10]) scale([1.5, 1, 1]) tube(40,35, hCon);
-		translate([_m1[0]-15, _m1[1]+3, 0]) rotate(a=[0, 0, -10]) scale([1.5, 1, 1]) tube(50,40, hCon);
+module _all() {
+	difference() {
+		union() {
+			_cons();
+			translate([_m1[0], _m1[1], 0]) cylinder(r=strength+2, h=hCon);
+		}
+		translate([_m1[0], _m1[1], 0]) cylinder(r=radiusScrew2, h=hCon);
+		translate([_m1[0], _m1[1], hCon-1.5]) cylinder(r1=radiusScrew2, r2=7, h=hCon);
 	}
 }
 

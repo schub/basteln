@@ -1,9 +1,5 @@
 //$fn=100;
 
-
-
-
-
 // ---------------------------------------------------
 // properties
 // ---------------------------------------------------
@@ -49,6 +45,7 @@ module _head() {
 		_headBase();
 		translate([0, 0, -30]) cylinder(h=30, r=_rRod);
 		//translate([-50, -50, -100]) cube([100, 100, 100]);
+		translate([-15-_rWt, 0, -20]) cylinder(h=20, r=_rWt);
 	}
 
 	translate([0, 0, -20]) cylinder(h=20, r=15);
