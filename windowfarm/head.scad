@@ -14,6 +14,7 @@ _hRod=35;		// height of rod head
 //_rod();
 
 _head();
+//_headBase();
 
 // ---------------------------------------------------
 // helpers
@@ -45,7 +46,7 @@ module _head() {
 		_headBase();
 		translate([0, 0, -30]) cylinder(h=30, r=_rRod);
 		//translate([-50, -50, -100]) cube([100, 100, 100]);
-		translate([-15-_rWt, 0, -20]) cylinder(h=20, r=_rWt);
+		//translate([-15-_rWt, 0, -20]) cylinder(h=20, r=_rWt);
 	}
 
 	translate([0, 0, -20]) cylinder(h=20, r=15);
@@ -61,11 +62,20 @@ module _headBase() {
 					translate([-50, -100, -50]) cube(100);
 				}
 				sphere(_rRod+_rWt/2);
-				translate([-15, 2, 0]) sphere(r=12);
-				translate([15, 2, 0]) sphere(r=12);
+				difference() {
+					translate([15, 2, 0]) rotate(a=[-90, 0, 0]) cylinder(h=2, r=11);
+					translate([-50, -98, -50]) cube(100);
+					translate([15+_rWt, -18, 0]) rotate(a=[-90, 0, 0]) cylinder(h=20, r=_rWt);
+				}
+				translate([15, -18, 0]) rotate(a=[-90, 0, 0]) cylinder(h=20, r1=0.1, r2=11);
+				difference() {
+					translate([-15, 2, 0]) rotate(a=[-90, 0, 0]) cylinder(h=2, r=11);
+					translate([-50, -98, -50]) cube(100);
+					translate([-15-_rWt, -18, 0]) rotate(a=[-90, 0, 0]) cylinder(h=20, r=_rWt);
+				}
+				translate([-15, -18, 0]) rotate(a=[-90, 0, 0]) cylinder(h=20, r1=0.1, r2=11);
 			}
 			rotate_extrude(file="circle_20_5.dxf");
 		}
 	}
-
 }
