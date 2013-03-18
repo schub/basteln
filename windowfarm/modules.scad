@@ -39,3 +39,8 @@ module screwWithNut(nr=5, nd=6.5, s=4, sd=6.5, sr=2.6, wp=0) {
 	}
 }
 
+module ring(r1, r2) {
+	rotate_extrude(convexity = 10) {
+		translate([r1+((r2-r1)/2), 0, 0]) circle((r2-r1)/2);
+	}
+}
