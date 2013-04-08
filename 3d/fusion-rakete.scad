@@ -3,7 +3,11 @@ _h=1.55;
 _d=23.2;
 _s=3;
 
-_outer();
+cube(10);
+
+linear_extrude(file="rakete.dxf", height = 10, center = true, convexity = 10);
+
+// _outer();
 
 module _outer() {
 	union() {

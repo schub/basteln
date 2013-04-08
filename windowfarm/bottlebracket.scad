@@ -4,7 +4,7 @@
 use <modules.scad>;
 
 // increase resolution
-//$fn = 100;
+$fn = 100;
 
 // ---------------------------------------------------
 // properties
