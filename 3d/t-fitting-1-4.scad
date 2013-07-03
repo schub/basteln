@@ -1,13 +1,13 @@
 
 $fn=100;
 
-dOuterSmall=12.5;
-dOuterBig=13.5;
+dOuterSmall=12.5/2;
+dOuterBig=13.5/2;
 
-dInnerSmall=9.5;
-dInnerBig=10.5;
+dInnerSmall=9.5/2;
+dInnerBig=10.5/2;
 
-dDepth=3;
+dDepth=3/2;
 dHeight=10;
 
 
