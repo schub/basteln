@@ -13,8 +13,11 @@ $fn=100;
 // parameter
 // ----------------------------------------------------------------------------------
 
-inInnerR=4.75;			// inner radius of the input tube holder
-inOuterR=5.25;			// outer radius of the input tube holder
+//inInnerR=4.75;			// inner radius of the input tube holder
+//inOuterR=5.25;			// outer radius of the input tube holder
+
+inInnerR=6.25;			// inner radius of the input tube holder
+inOuterR=6.75;			// outer radius of the input tube holder
 
 outInnerR=6.25;			// inner radius of the output tube holder
 outOuterR=6.75;			// outer radius of the output tube holder
