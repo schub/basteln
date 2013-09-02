@@ -6,7 +6,7 @@
 // ----------------------------------------------------------------------------------
 
 
-$fn=100;
+//$fn=100;
 
 
 // ----------------------------------------------------------------------------------
@@ -28,10 +28,10 @@ thPL=8;					// length of last piece of tube holder
 bR=10;					// radius of base which connects all tube holders
 
 // for two output tubes use this array
-//outAngles=[135, 225];	// angles for output tubes
+outAngles=[135, 225];	// angles for output tubes
 
 // for one output tube use this array
-outAngles=[180];			// angles for output tubes
+//outAngles=[180];			// angles for output tubes
 
 
 // ----------------------------------------------------------------------------------
@@ -58,7 +58,7 @@ module all() {
 	union() {
 		base();
 		translate([bR, 0, 0]) tubeHolder(inInnerR, inOuterR);
-		for ( i= [0:len(outAngles)] ) {
+		for ( i= [0:len(outAngles)-1] ) {
 			rotate(a=[0, 0, outAngles[i]]) {
 				translate([bR, 0, 0]) tubeHolder(outInnerR, outOuterR);
 			}
@@ -76,6 +76,7 @@ module base() {
 				rotate(a=[outAngles[i], 90, 0]) cylinder(h=100, r=outOuterR-thS);
 			}
 		}
+		translate([0, 0, outOuterR]) sphere(outOuterR-thS);
 	}
 }
 
