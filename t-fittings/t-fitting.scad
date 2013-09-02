@@ -6,7 +6,7 @@
 // ----------------------------------------------------------------------------------
 
 
-//$fn=100;
+$fn=100;
 
 
 // ----------------------------------------------------------------------------------
@@ -27,8 +27,11 @@ thPL=8;					// length of last piece of tube holder
 
 bR=10;					// radius of base which connects all tube holders
 
+// for two output tubes use this array
 //outAngles=[135, 225];	// angles for output tubes
-outAngles=[180];	// angles for output tubes
+
+// for one output tube use this array
+outAngles=[180];			// angles for output tubes
 
 
 // ----------------------------------------------------------------------------------
@@ -44,11 +47,7 @@ bRSphere=sqrt(pow(outOuterR,2) + pow(bR, 2));
 // ----------------------------------------------------------------------------------
 
 
-difference() {
-	all();
-	translate([-50, -50, 5]) cube(100);
-	translate([0, 0, outOuterR]) sphere(outOuterR-thS);
-}
+all();
 
 
 // ----------------------------------------------------------------------------------
