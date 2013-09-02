@@ -55,8 +55,8 @@ module all() {
 	union() {
 		base();
 		translate([bR, 0, 0]) tubeHolder(inInnerR, inOuterR);
-		rotate(a=[0, 0, 135]) translate([bR, 0, 0]) tubeHolder(outInnerR, outOuterR);
-		rotate(a=[0, 0, 225]) translate([bR, 0, 0]) tubeHolder(outInnerR, outOuterR);
+		rotate(a=[0, 0, outAngles[0]]) translate([bR, 0, 0]) tubeHolder(outInnerR, outOuterR);
+		rotate(a=[0, 0, outAngles[1]]) translate([bR, 0, 0]) tubeHolder(outInnerR, outOuterR);
 	}
 }
 
