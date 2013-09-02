@@ -6,18 +6,18 @@
 // ----------------------------------------------------------------------------------
 
 
-$fn=100;
+//$fn=100;
 
 
 // ----------------------------------------------------------------------------------
 // parameter
 // ----------------------------------------------------------------------------------
 
-//inInnerR=4.75;			// inner radius of the input tube holder
-//inOuterR=5.25;			// outer radius of the input tube holder
+inInnerR=4.75;			// inner radius of the input tube holder
+inOuterR=5.25;			// outer radius of the input tube holder
 
-inInnerR=6.25;			// inner radius of the input tube holder
-inOuterR=6.75;			// outer radius of the input tube holder
+//inInnerR=6.25;			// inner radius of the input tube holder
+//inOuterR=6.75;			// outer radius of the input tube holder
 
 outInnerR=6.25;			// inner radius of the output tube holder
 outOuterR=6.75;			// outer radius of the output tube holder
@@ -27,8 +27,8 @@ thPL=8;					// length of last piece of tube holder
 
 bR=10;					// radius of base which connects all tube holders
 
-outAngles=[135, 225];	// angles for output tubes
-
+//outAngles=[135, 225];	// angles for output tubes
+outAngles=[180];	// angles for output tubes
 
 
 // ----------------------------------------------------------------------------------
@@ -44,7 +44,11 @@ bRSphere=sqrt(pow(outOuterR,2) + pow(bR, 2));
 // ----------------------------------------------------------------------------------
 
 
-all();
+difference() {
+	all();
+	translate([-50, -50, 5]) cube(100);
+	translate([0, 0, outOuterR]) sphere(outOuterR-thS);
+}
 
 
 // ----------------------------------------------------------------------------------
@@ -55,8 +59,11 @@ module all() {
 	union() {
 		base();
 		translate([bR, 0, 0]) tubeHolder(inInnerR, inOuterR);
-		rotate(a=[0, 0, outAngles[0]]) translate([bR, 0, 0]) tubeHolder(outInnerR, outOuterR);
-		rotate(a=[0, 0, outAngles[1]]) translate([bR, 0, 0]) tubeHolder(outInnerR, outOuterR);
+		for ( i= [0:len(outAngles)] ) {
+			rotate(a=[0, 0, outAngles[i]]) {
+				translate([bR, 0, 0]) tubeHolder(outInnerR, outOuterR);
+			}
+		}
 	}
 }
 
@@ -66,7 +73,7 @@ module base() {
 		translate([-50, -50, -100]) cube(100);
 		translate([-50, -50, 2*outOuterR]) cube(100);
 		translate([0, 0, outOuterR]) {
-			for ( i = [0 : 2] ) {
+			for ( i = [0:len(outAngles)] ) {
 				rotate(a=[outAngles[i], 90, 0]) cylinder(h=100, r=outOuterR-thS);
 			}
 		}
