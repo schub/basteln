@@ -10,3 +10,7 @@ basteln
 ###t-fittings
 
 t-fittings for water tubes used for gardening projects
+
+###space invader hook
+
+create clothes hooks that look like space invaders :) the hook_generator.scad is customizable. add new space invaders or customize position of the hook or the holes for the screw.
