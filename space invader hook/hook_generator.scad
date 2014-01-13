@@ -16,10 +16,12 @@ $fn=100;
 
 // edge length of one cube that builds the space invader
 edgeLength=6;
+
+// strength of the hook
 strength=4;
 
 // radius of the holes
-wholeRadius=1.5;
+holeRadius=1.5;
 
 
 // ------------------------------------------------------------------
@@ -40,7 +42,12 @@ sp4=[[0,0],[0,3],[0,4],[1,0],[1,1],[1,3],[1,4],[1,5],[1,6],[2,1],[2,2],[2,3],[2,
 // --- programm -----------------------------------------------------
 // ------------------------------------------------------------------
 
-invader4();
+
+invader1();
+translate([50, 0, 0]) invader2();
+translate([100, 0, 0]) invader3();
+translate([150, 0, 0]) invader4();
+
 
 
 // ------------------------------------------------------------------
@@ -86,8 +93,8 @@ module _invader(data, nose, hole) {
 		translate([hole[0]*edgeLength+edgeLength/2, hole[1]*edgeLength+edgeLength/2, 0]) {
 			cylinder(h=edgeLength, r=1.5);
 			hull() {
-				translate([0, 0, strength-1.5]) cylinder(h=0.1, r=1.5);
-				translate([0, 0, strength]) cylinder(h=0.1, r=3);
+				translate([0, 0, strength-holeRadius]) cylinder(h=0.1, r=holeRadius);
+				translate([0, 0, strength]) cylinder(h=0.1, r=2.3);
 			}
 		}
 	}
