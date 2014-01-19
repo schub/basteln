@@ -6,23 +6,31 @@
  *
  * ******************************************************************** */
 
+// preview[view:south, tilt:top]
 
 // ------------------------------------------------------------------
 // --- parameter ----------------------------------------------------
 // ------------------------------------------------------------------
 
+/* [Global] */
+
 // resolution
-$fn=100;
+$fn=50;
 
-// edge length of one cube that builds the space invader
-edgeLength=6;
+// pixel size
+edgeLength = 5;
 
-// strength of the hook
-strength=4;
+// thickness of the hook
+strength = 4;
 
-// radius of the holes
-holeRadius=1.5;
+// radius of the hole
+holeRadius = 1.5;
 
+// atm 4 different space invaders available
+spaceInvader = 4; // [1,2,3,4]
+
+
+/* [Hidden] */
 
 // ------------------------------------------------------------------
 // --- space invader versions ---------------------------------------
@@ -42,12 +50,15 @@ sp4=[[0,0],[0,3],[0,4],[1,0],[1,1],[1,3],[1,4],[1,5],[1,6],[2,1],[2,2],[2,3],[2,
 // --- programm -----------------------------------------------------
 // ------------------------------------------------------------------
 
-
-invader1();
-translate([50, 0, 0]) invader2();
-translate([100, 0, 0]) invader3();
-translate([150, 0, 0]) invader4();
-
+if (spaceInvader == 1) {
+	invader1();
+} else if (spaceInvader == 2) {
+	invader2();
+} else if (spaceInvader == 3) {
+	invader3();
+} else if (spaceInvader == 4) {
+	invader4();
+}
 
 
 // ------------------------------------------------------------------
