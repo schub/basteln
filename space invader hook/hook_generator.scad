@@ -14,11 +14,15 @@
 
 /* [Global] */
 
+
+
+/* [Basic] */
+
 // choose a space invader
-spaceInvader = 10; // [1,2,3,4,5,6,7,8,9,10]
+spaceInvader = 5; // [1,2,3,4,5,6,7,8,9,10]
 
 // pixel size
-edgeLength = 5;
+edgeLength = 4;
 
 // thickness of the hook
 strength = 4;
@@ -42,7 +46,7 @@ make_hole = "yes"; // [yes,no]
 make_hook = "yes"; // [yes,no]
 
 // use to avoid loonely pixel
-minkowski_factor=10;
+// minkowski_factor=10;
 
 
 
