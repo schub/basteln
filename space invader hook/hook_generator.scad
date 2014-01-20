@@ -28,7 +28,7 @@ edgeLength = 4;
 strength = 4;
 
 // radius of the hole
-holeRadius = 1.5;
+holeRadius = 1.0;
 
 // adjust the strength of the connections of otherwise unconnected pixel
 pixel_connection_strength = 0.4;
@@ -239,10 +239,10 @@ module pixel_connection(x,y,direction) {
 //
 module hook_hole_positive(x,y,h) {
 	translate([x*edgeLength+edgeLength/2, -y*edgeLength+edgeLength/2, 0]) {
-		cylinder(h=strength*h, r=1.5);
+		cylinder(h=strength*h, r=holeRadius);
 		hull() {
 			translate([0, 0, strength*h-holeRadius]) cylinder(h=0.1, r=holeRadius);
-			translate([0, 0, strength*h]) cylinder(h=0.1, r=2.3);
+			translate([0, 0, strength*h]) cylinder(h=holeRadius/2, r=holeRadius*1.8);
 		}
 	}
 }
