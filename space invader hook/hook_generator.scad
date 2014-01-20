@@ -15,7 +15,7 @@
 /* [Global] */
 
 // choose a space invader
-spaceInvader = 5; // [1,2,3,4,5,6]
+spaceInvader = 10; // [1,2,3,4,5,6,7,8,9,10]
 
 // pixel size
 edgeLength = 5;
@@ -25,6 +25,9 @@ strength = 4;
 
 // radius of the hole
 holeRadius = 1.5;
+
+// adjust the strength of the connections of otherwise unconnected pixel
+pixel_connection_strength = 0.4;
 
 
 /* [Advanced] */
@@ -75,49 +78,64 @@ si_5=[[0,0,1,1,0,1,1,0,0],[0,1,1,1,1,1,1,1,0],[0,1,0,0,1,0,0,1,0],[1,1,0,0,1,0,0
 si_5_hole=[4,4];
 si_5_hook=[4,6];
 
+// space invader 6 parameter
 si_6=[[0,0,1,0,0,0,0,0,1,0,0],[0,0,0,1,0,0,0,1,0,0,0],[0,0,1,1,1,1,1,1,1,0,0],[0,1,1,0,1,1,1,0,1,1,0],[1,1,1,1,1,1,1,1,1,1,1],[1,0,1,1,1,1,1,1,1,0,1],[1,0,1,0,0,0,0,0,1,0,1],[0,0,0,1,1,0,1,1,0,0,0]];
 si_6_hole=[5,3];
 si_6_hook=[5,5];
+si_6_cons=[[0,0,2,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0],[0,0,2,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0]];
+
+// space invader 7 parameter
+si_7=[[0,0,0,1,1,0,0,0],[0,0,1,1,1,1,0,0],[0,1,1,1,1,1,1,0],[1,1,0,1,1,0,1,1],[1,1,1,1,1,1,1,1],[0,1,0,1,1,0,1,0],[1,0,0,0,0,0,0,1],[0,1,0,0,0,0,1,0]];
+si_7_hole=[3.5,3];
+si_7_hook=[3.5,5];
+si_7_cons=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,2,0],[3,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0]];
+
+// space invader 8 parameter
+si_8=[[0,0,0,1,1,0,0,0],[0,0,1,1,1,1,0,0],[0,1,1,1,1,1,1,0],[1,1,0,1,1,0,1,1],[1,1,1,1,1,1,1,1],[0,1,0,1,1,0,1,0],[1,0,1,0,0,1,0,1],[0,1,0,1,1,0,1,0]];
+si_8_hole=[3.5,3];
+si_8_hook=[3.5,5];
+si_8_cons=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,2,0,0,2,0,2,0],[3,0,3,0,0,3,0,0],[0,1,0,0,1,0,1,0]];
+
+// space invader 9 parameter
+si_9=[[0,0,0,0,1,1,1,1,0,0,0,0],[0,1,1,1,1,1,1,1,1,1,1,0],[1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,0,0,1,1,0,0,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1],[0,0,1,1,1,0,0,1,1,1,0,0],[0,1,1,0,0,1,1,0,0,1,1,0],[0,0,1,1,0,0,0,0,1,1,0,0]];
+si_9_hole=[5.5,2];
+si_9_hook=[5.5,4];
+si_9_cons=[[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,2,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0]];
+
+si_10=[[0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],[0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0],[0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0],[0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[0,0,1,1,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0]];
+si_10_hole=[7.5,3];
+si_10_hook=[7.5,5];
+si_10_cons=[];
+
+
+
 
 // ------------------------------------------------------------------
 // --- programm -----------------------------------------------------
 // ------------------------------------------------------------------
 
 if (spaceInvader == 1) {
-	complete_hook(si_1, si_1_hole, si_1_hook);
+	complete_hook(si_1, [], si_1_hole, si_1_hook);
 } else if (spaceInvader == 2) {
-	complete_hook(si_2, si_2_hole, si_2_hook);
+	complete_hook(si_2, [], si_2_hole, si_2_hook);
 } else if (spaceInvader == 3) {
-	complete_hook(si_3, si_3_hole, si_3_hook);
+	complete_hook(si_3, [], si_3_hole, si_3_hook);
 } else if (spaceInvader == 4) {
-	complete_hook(si_4, si_4_hole, si_4_hook);
+	complete_hook(si_4, [], si_4_hole, si_4_hook);
 } else if (spaceInvader == 5) {
-	complete_hook(si_5, si_5_hole, si_5_hook);
+	complete_hook(si_5, [], si_5_hole, si_5_hook);
 } else if (spaceInvader == 6) {
-	complete_hook(si_6, si_6_hole, si_6_hook);
+	complete_hook(si_6, si_6_cons, si_6_hole, si_6_hook);
+} else if (spaceInvader == 7) {
+	complete_hook(si_7, si_7_cons, si_7_hole, si_7_hook);
+} else if (spaceInvader == 8) {
+	complete_hook(si_8, si_8_cons, si_8_hole, si_8_hook);
+} else if (spaceInvader == 9) {
+	complete_hook(si_9, si_9_cons, si_9_hole, si_9_hook);
+} else if (spaceInvader == 10) {
+	complete_hook(si_10, si_10_cons, si_10_hole, si_10_hook);
 }
 
-
-// ------------------------------------------------------------------
-// --- invader modules ----------------------------------------------
-// ------------------------------------------------------------------
-
-
-module invader1() {
-	_invader(sp1, [3,2], [3,4]);
-}
-
-module invader2() {
-	_invader(sp2, [3,-1], [3,2]);
-}
-
-module invader3() {
-	_invader(sp3, [3,-1], [3,2]);
-}
-
-module invader4() {
-	_invader(sp4, [4,1], [4,3]);
-}
 
 
 
@@ -127,10 +145,11 @@ module invader4() {
 
 
 
-module complete_hook(matrix, hole, hook) {
+module complete_hook(matrix, cons, hole, hook) {
 	difference() {
 		union() {
 			hook_base(matrix);
+			connections(cons);
 			if (make_hook == "yes") {
 				hook(hook[0], hook[1]);
 			}
@@ -145,14 +164,24 @@ module complete_hook(matrix, hole, hook) {
 module hook_base(data) {
 	for (y = [0:len(data)]) {
 		for(x = [0:len(data[y])]) {
-			_cube(x,y,data[y][x]);
+			pixel(x,y,data[y][x]);
+		}
+	}
+}
+
+module connections(data) {
+	for (y = [0:len(data)]) {
+		for(x = [0:len(data[y])]) {
+			if (data[y][x] > 0) {
+				pixel_connection(x,y,data[y][x]);
+			}
 		}
 	}
 }
 
 // builds a cube at specified position
 //
-module _cube(x, y, h) {
+module pixel(x, y, h) {
 	translate([x*edgeLength, -y*edgeLength, 0]) {
 		if (h > 0) {
 			cube([edgeLength, edgeLength, strength*h]);
@@ -163,6 +192,41 @@ module _cube(x, y, h) {
  				cylinder(r=strength/10,h=strength*h-(strength/5));
 			}
 			*/
+		}
+	}
+}
+
+// build a connection
+module pixel_connection(x,y,direction) {
+	translate([(x+0.5)*edgeLength,-(y-0.5)*edgeLength,0]) {
+		if (direction == 3) {
+			union() {
+				hull() {
+					cylinder(r=pixel_connection_strength, h=strength);
+					translate([edgeLength,edgeLength,0]) {
+						cylinder(r=pixel_connection_strength, h=strength);
+					}
+				}
+				hull() {
+					cylinder(r=pixel_connection_strength, h=strength);
+					translate([edgeLength,-edgeLength,0]) {
+						cylinder(r=pixel_connection_strength, h=strength);
+					}
+				}
+			}
+		}
+		hull() {
+			cylinder(r=pixel_connection_strength, h=strength);
+			if (direction == 1) {
+				translate([edgeLength,edgeLength,0]) {
+					cylinder(r=pixel_connection_strength, h=strength);
+				}
+			}
+			if (direction == 2) {
+				translate([edgeLength,-edgeLength,0]) {
+					cylinder(r=pixel_connection_strength, h=strength);
+				}
+			}
 		}
 	}
 }
