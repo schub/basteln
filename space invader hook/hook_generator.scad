@@ -14,8 +14,8 @@
 
 /* [Global] */
 
-// resolution
-$fn=50;
+// choose a space invader
+spaceInvader = 5; // [1,2,3,4,5,6]
 
 // pixel size
 edgeLength = 5;
@@ -26,38 +26,75 @@ strength = 4;
 // radius of the hole
 holeRadius = 1.5;
 
-// atm 4 different space invaders available
-spaceInvader = 4; // [1,2,3,4]
+
+/* [Advanced] */
+
+// resolution
+$fn=50;
+
+// make a hole or not
+make_hole = "yes"; // [yes,no]
+
+// make a hook or just the base space invader
+make_hook = "yes"; // [yes,no]
+
+// use to avoid loonely pixel
+minkowski_factor=10;
+
 
 
 /* [Hidden] */
 
 // ------------------------------------------------------------------
 // --- space invader versions ---------------------------------------
-// --- a vector of 2d coordinates -----------------------------------
+// --- a vector of 2d coordinates; hole and hook position -----------
 // ------------------------------------------------------------------
 
-sp1=[[0,0],[0,1],[0,2],[1,2],[1,3],[1,4],[2,1],[2,2],[2,4],[2,5],[3,2],[3,3],[3,4],[4,1],[4,2],[4,4],[4,5],[5,2],[5,3],[5,4],[6,0],[6,1],[6,2]];
+// space invader 1 parameter
+si_1=[[0,0,1,0,1,0,0],[0,1,1,1,1,1,0],[0,1,0,1,0,1,0],[1,1,1,1,1,1,1],[1,0,1,0,1,0,1],[1,0,0,0,0,0,1]];
+si_1_hole=[3,2];
+si_1_hook=[3,4];
 
-sp2=[[0,0],[0,1],[0,2],[1,2],[1,3],[1,4],[2,1],[2,2],[2,4],[2,5],[3,-1],[3,0],[3,1],[3,2],[3,3],[3,4],[4,1],[4,2],[4,4],[4,5],[5,2],[5,3],[5,4],[6,0],[6,1],[6,2]];
+// space invader 2 parameter
+si_2=[[0,0,1,0,1,0,0],[0,1,1,1,1,1,0],[0,1,0,1,0,1,0],[1,1,1,1,1,1,1],[1,0,1,1,1,0,1],[1,0,0,1,0,0,1]];
+si_2_hole=[3,3];
+si_2_hook=[3,5];
 
-sp3=[[0,-1],[0,0],[0,1],[0,2],[1,-1],[1,2],[1,3],[1,4],[2,1],[2,2],[2,4],[2,5],[3,-1],[3,0],[3,1],[3,2],[3,3],[3,4],[4,1],[4,2],[4,4],[4,5],[5,-1],[5,2],[5,3],[5,4],[6,-1],[6,0],[6,1],[6,2]];
+// space invader 3 parameter
+si_3=[[0,0,1,0,1,0,0],[0,1,1,1,1,1,0],[0,1,0,1,0,1,0],[1,1,1,1,1,1,1],[1,0,1,1,1,0,1],[1,0,0,1,0,0,1],[0,0,0,1,0,0,0]];
+si_3_hole=[3,3];
+si_3_hook=[3,6];
 
-sp4=[[0,0],[0,3],[0,4],[1,0],[1,1],[1,3],[1,4],[1,5],[1,6],[2,1],[2,2],[2,3],[2,6],[2,7],[3,2],[3,3],[3,6],[3,7],[4,2],[4,3],[4,4],[4,5],[4,6],[5,2],[5,3],[5,6],[5,7],[6,1],[6,2],[6,3],[6,6],[6,7],[7,0],[7,1],[7,3],[7,4],[7,5],[7,6],[8,0],[8,3],[8,4]];
+// space invader 5 parameter
+si_4=[[0,0,1,0,1,0,0],[0,1,1,1,1,1,0],[0,1,0,1,0,1,0],[1,1,1,1,1,1,1],[1,0,1,1,1,0,1],[1,0,0,1,0,0,1],[1,1,0,1,0,1,1]];
+si_4_hole=[3,3];
+si_4_hook=[3,6];
 
+// space invader 5 parameter
+si_5=[[0,0,1,1,0,1,1,0,0],[0,1,1,1,1,1,1,1,0],[0,1,0,0,1,0,0,1,0],[1,1,0,0,1,0,0,1,1],[1,1,1,1,1,1,1,1,1],[0,0,1,1,1,1,1,0,0],[0,1,1,0,1,0,1,1,0],[1,1,0,0,0,0,0,1,1]];
+si_5_hole=[4,4];
+si_5_hook=[4,6];
+
+si_6=[[0,0,1,0,0,0,0,0,1,0,0],[0,0,0,1,0,0,0,1,0,0,0],[0,0,1,1,1,1,1,1,1,0,0],[0,1,1,0,1,1,1,0,1,1,0],[1,1,1,1,1,1,1,1,1,1,1],[1,0,1,1,1,1,1,1,1,0,1],[1,0,1,0,0,0,0,0,1,0,1],[0,0,0,1,1,0,1,1,0,0,0]];
+si_6_hole=[5,3];
+si_6_hook=[5,5];
 
 // ------------------------------------------------------------------
 // --- programm -----------------------------------------------------
 // ------------------------------------------------------------------
 
 if (spaceInvader == 1) {
-	invader1();
+	complete_hook(si_1, si_1_hole, si_1_hook);
 } else if (spaceInvader == 2) {
-	invader2();
+	complete_hook(si_2, si_2_hole, si_2_hook);
 } else if (spaceInvader == 3) {
-	invader3();
+	complete_hook(si_3, si_3_hole, si_3_hook);
 } else if (spaceInvader == 4) {
-	invader4();
+	complete_hook(si_4, si_4_hole, si_4_hook);
+} else if (spaceInvader == 5) {
+	complete_hook(si_5, si_5_hole, si_5_hook);
+} else if (spaceInvader == 6) {
+	complete_hook(si_6, si_6_hole, si_6_hook);
 }
 
 
@@ -84,45 +121,68 @@ module invader4() {
 
 
 
-
 // ------------------------------------------------------------------
 // --- modules ------------------------------------------------------
 // ------------------------------------------------------------------
 
 
-// builds a complete towel hook with space invader base, 
-// holes and noses.
-//
-module _invader(data, nose, hole) {
+
+module complete_hook(matrix, hole, hook) {
 	difference() {
 		union() {
-			for (i = [0:len(data)]) {
-				_cube(data[i][0], data[i][1], 0);
+			hook_base(matrix);
+			if (make_hook == "yes") {
+				hook(hook[0], hook[1]);
 			}
-			_hook(nose[0], nose[1]);
 		}
-		translate([hole[0]*edgeLength+edgeLength/2, hole[1]*edgeLength+edgeLength/2, 0]) {
-			cylinder(h=edgeLength, r=1.5);
-			hull() {
-				translate([0, 0, strength-holeRadius]) cylinder(h=0.1, r=holeRadius);
-				translate([0, 0, strength]) cylinder(h=0.1, r=2.3);
-			}
+		if (make_hole == "yes") {
+			hook_hole_positive(hole[0], hole[1], 1);
+		}
+	}
+}
+
+
+module hook_base(data) {
+	for (y = [0:len(data)]) {
+		for(x = [0:len(data[y])]) {
+			_cube(x,y,data[y][x]);
 		}
 	}
 }
 
 // builds a cube at specified position
 //
-module _cube(x, y) {
-	translate([x*edgeLength, y*edgeLength, 0]) {
-		cube([edgeLength, edgeLength, strength]);
+module _cube(x, y, h) {
+	translate([x*edgeLength, -y*edgeLength, 0]) {
+		if (h > 0) {
+			cube([edgeLength, edgeLength, strength*h]);
+			/*
+			minkowski()
+			{
+				cube([edgeLength, edgeLength, strength*h-(strength/5)]);
+ 				cylinder(r=strength/10,h=strength*h-(strength/5));
+			}
+			*/
+		}
+	}
+}
+
+// make the positives for the holes
+//
+module hook_hole_positive(x,y,h) {
+	translate([x*edgeLength+edgeLength/2, -y*edgeLength+edgeLength/2, 0]) {
+		cylinder(h=strength*h, r=1.5);
+		hull() {
+			translate([0, 0, strength*h-holeRadius]) cylinder(h=0.1, r=holeRadius);
+			translate([0, 0, strength*h]) cylinder(h=0.1, r=2.3);
+		}
 	}
 }
 
 // builds the hook at specified position
 //
-module _hook(x, y) {
-	translate([x*edgeLength, y*edgeLength, 0]) {
+module hook(x, y) {
+	translate([x*edgeLength, -y*edgeLength, 0]) {
 		union() {
 			cube([edgeLength, edgeLength, 0.5*edgeLength+strength]);
 			hull() {
