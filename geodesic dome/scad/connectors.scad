@@ -75,7 +75,7 @@ con_BCBC=[[0,1],[60,2],[120,1],[180,2]];
 // ---------------------------------------------------
 
 
-//top(con_ABCBCB);
+top(con_ABCBCB);
 //bottom(con_ABCBCB);
 
 //star(con_ABCBCB);
@@ -86,7 +86,7 @@ con_BCBC=[[0,1],[60,2],[120,1],[180,2]];
 //con(con_ABCBCB, "top");
 //con(con_ABCBCB, "bottom");
 
-testing();
+//testing();
 
 // ---------------------------------------------------
 // modules
