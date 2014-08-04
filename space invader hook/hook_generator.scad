@@ -19,16 +19,16 @@
 /* [Basic] */
 
 // choose a space invader
-spaceInvader = 10; // [1,2,3,4,5,6,7,8,9,10]
+spaceInvader = 5; // [1,2,3,4,5,6,7,8,9,10]
 
 // pixel size
 edgeLength = 5;
 
 // thickness of the hook
-strength = 4;
+strength = 5;
 
 // radius of the hole
-holeRadius = 1.0;
+holeRadius = 1.5;
 
 // adjust the strength of the connections of otherwise unconnected pixel
 pixel_connection_strength = 0.4;
